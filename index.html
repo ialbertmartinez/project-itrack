@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags always come first -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+
+		<title>NuCamp: A Better Way To Camp</title>
+
+		 <!-- build:css css/main.css -->
+		 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+		 <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+		 <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
+		 <link rel="stylesheet" href="css/styles.css" />
+		 <!-- endbuild -->
+		 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300;400;800&display=swap">
+	</head>
+		
+	<body>
+		<header>
+			<div class="branding">
+				<img src="https://via.placeholder.com/50" width="50" height="50">
+				<h1>iTrack</h1>
+			</div>
+			<nav>
+				<ul>
+					<li>Inventory</li>
+					<li>Categories</li>
+					<li>Locations</li>
+					<li>History</li>
+				</ul>
+			</nav>
+		</header>
+
+		<div id="itemModal">
+			<form>
+				<!-- name -->
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" placeholder="Item Name" />
+				<!-- ./name -->
+
+				<!-- location -->
+				<label for="location">Location</label>
+				<input type="text" id="location" name="location" placeholder="Location" />
+				<!-- ./location -->
+
+				<!-- category -->
+				<label for="category">Category</label>
+				<input type="text" id="category" name="category" placeholder="Category" />
+				<!-- ./category -->
+
+				<!-- price -->
+				<label for="price">Price</label>
+				<input type="text" id="price" name="price" placeholder="Price" />
+				<!-- ./price -->
+
+				<!-- qty -->
+				<label for="qty">Qty</label>
+				<input type="text" id="qty" name="qty" placeholder="Qty" />
+				<!-- ./qty -->
+
+				<!-- unit -->
+				<label for="unit">Unit</label>
+				<input type="text" id="unit" name="unit" placeholder="Unit" />
+				<!-- ./unit -->
+
+				<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-primary btn-sm ml-1">Add item</button>
+
+			</form>
+		</div>
+		
+		<!-- add location modal -->
+		<div id="locationModal">
+			<form action="" id="locationForm">
+
+				<label for="locationName"></label>
+				<input type="text" id="locationName" name="locationName" placeholder="Location" required/>
+
+				<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-primary btn-sm ml-1">Add location</button>
+
+			</form>
+		</div>
+		<!-- ./add location modal -->
+		
+		<!-- add category modal -->
+		<div id="categoryModal">
+			<form action="#" id="categoryForm">
+
+				<label for="categoryName"></label>
+				<input type="text" id="categoryName" name="categoryName" placeholder="Category" required/>
+
+				<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-primary btn-sm ml-1">Add Category</button>
+
+			</form>
+		</div>
+		<!-- ./add category modal -->
+
+		<div class="button-group">
+			<!-- action 1 -->
+			<div>
+				<a href="#" class="btn">+item</a>
+			</div>
+			<!-- /action 1 -->
+			
+			<!-- action 2 -->
+			<div>
+				<a href="#" class="btn">+location</a>
+			</div>
+			<!-- /action 2 -->
+			
+			<!-- action 3 -->
+			<div>
+				<a href="#" class="btn">+category</a>
+			</div>
+			<!-- /action 3 -->
+		</div>
+		
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h3>CATEGORY</h3>
+					</div>
+					<div class="col category-details">
+						<p>| 4 items</p>
+					</div>
+					<div class="col category-details">
+						<p>20 items total including inventory</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="item">
+							<!-- item status & qty -->
+							<div class="row">
+								<div class="item-data item-status"></div>
+								<div class="item-data item-qty">
+									<p>00</p>
+								</div>
+							</div>
+							<!-- ./item status & qty -->
+							
+							<!-- item category -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-category">Category Name</div>
+								</div>
+							</div>
+							<!-- ./item category -->
+							
+							<!-- item name -->
+							<div class="row">
+								<div class="col-12">
+									<h4 class="item-data">Item Name</h4>
+								</div>
+							</div>
+							<!-- ./item name -->
+							
+							<!-- item location -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-data item-location">Location Name<br></div>
+								</div>
+							</div>
+							<!-- ./item location -->
+						</div>
+						<!-- ./item -->
+					</div>
+					<!-- ./col -->
+					
+					<div class="col">
+						<div class="item">
+							<!-- item status & qty -->
+							<div class="row">
+								<div class="item-data item-status"></div>
+								<div class="item-data item-qty">
+									<p>00</p>
+								</div>
+							</div>
+							<!-- ./item status & qty -->
+							
+							<!-- item category -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-category">Category Name</div>
+								</div>
+							</div>
+							<!-- ./item category -->
+							
+							<!-- item name -->
+							<div class="row">
+								<div class="col-12">
+									<h4 class="item-data">Item Name</h4>
+								</div>
+							</div>
+							<!-- ./item name -->
+							
+							<!-- item location -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-data item-location">Location Name<br></div>
+								</div>
+							</div>
+							<!-- ./item location -->
+						</div>
+						<!-- ./item -->
+					</div>
+					<!-- ./col -->
+					
+					<div class="col">
+						<div class="item">
+							<!-- item status & qty -->
+							<div class="row">
+								<div class="item-data item-status"></div>
+								<div class="item-data item-qty">
+									<p>00</p>
+								</div>
+							</div>
+							<!-- ./item status & qty -->
+							
+							<!-- item category -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-category">Category Name</div>
+								</div>
+							</div>
+							<!-- ./item category -->
+							
+							<!-- item name -->
+							<div class="row">
+								<div class="col-12">
+									<h4 class="item-data">Item Name</h4>
+								</div>
+							</div>
+							<!-- ./item name -->
+							
+							<!-- item location -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-data item-location">Location Name<br></div>
+								</div>
+							</div>
+							<!-- ./item location -->
+						</div>
+						<!-- ./item -->
+					</div>
+					<!-- ./col -->
+					
+					<div class="col">
+						<div class="item">
+							<!-- item status & qty -->
+							<div class="row">
+								<div class="item-data item-status"></div>
+								<div class="item-data item-qty">
+									<p>00</p>
+								</div>
+							</div>
+							<!-- ./item status & qty -->
+							
+							<!-- item category -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-category">Category Name</div>
+								</div>
+							</div>
+							<!-- ./item category -->
+							
+							<!-- item name -->
+							<div class="row">
+								<div class="col-12">
+									<h4 class="item-data">Item Name</h4>
+								</div>
+							</div>
+							<!-- ./item name -->
+							
+							<!-- item location -->
+							<div class="row">
+								<div class="col-12">
+									<div class="item-data item-location">Location Name<br></div>
+								</div>
+							</div>
+							<!-- ./item location -->
+						</div>
+						<!-- ./item -->
+					</div>
+					<!-- ./col -->
+				</div>
+				<!-- ./row -->
+			</div>
+			<!-- ./container -->
+		</main>
+		<footer>
+			<p>&copy; 2021 <a class="footer-link" href="ialbertmartinez.com">Albert Martinez</a></p>
+		</footer>
+	</body>
+</html>
