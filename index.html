@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
 
-		<title>NuCamp: A Better Way To Camp</title>
+		<title>iTrack</title>
 
 		 <!-- build:css css/main.css -->
 		 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
@@ -17,283 +17,265 @@
 	</head>
 		
 	<body>
-		<header>
-			<div class="branding">
-				<img src="https://via.placeholder.com/50" width="50" height="50">
-				<h1>iTrack</h1>
+		<nav class="navbar navbar-light bg-white navbar-expand-md">
+			<div class="container-fluid">
+				<a href="index.html" class="navbar-brand">
+					iTrack
+				</a>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="#navbar" aria-expanded="false" aria-label="Toggle navigaation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="#" class="nav-link">Inventory</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Locations</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">History</a></li>
+					</ul>
+				</div>
 			</div>
-			<nav>
-				<ul>
-					<li>Inventory</li>
-					<li>Categories</li>
-					<li>Locations</li>
-					<li>History</li>
-				</ul>
-			</nav>
-		</header>
+		</nav>
 
-		<div id="itemModal">
-			<form>
-				<!-- name -->
-				<label for="name">Name</label>
-				<input type="text" id="name" name="name" placeholder="Item Name" />
-				<!-- ./name -->
+		<div id="itemModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<h3 class="modal-title">New Item</h3>
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+					</div>
+					
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form id="itemForm">
+								<div class="form-row">
+									
+									<!-- name -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="name">Name</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="name" name="name" placeholder="Item Name" />
+										</div>
+									</div>
+									<!-- ./name -->
+									
+									<!-- location -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="location">Location</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="location" name="location" placeholder="Location" />
+										</div>
+									</div>
+									<!-- ./location -->
+									
+									<!-- category -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="category">Category</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="category" name="category" placeholder="Category" />
+										</div>
+									</div>
+									<!-- ./category -->
+									
+									<!-- price -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="price">Price</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="price" name="price" placeholder="Price" />
+										</div>
+									</div>
+									<!-- ./price -->
+									
+									<!-- qty -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="qty">Qty</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="qty" name="qty" placeholder="Qty" />
+										</div>
+									</div>
+									<!-- ./qty -->
+									
+									<!-- unit -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="unit">Unit</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="unit" name="unit" placeholder="Unit" />
+										</div>
+									</div>
+									<!-- ./unit -->
 
-				<!-- location -->
-				<label for="location">Location</label>
-				<input type="text" id="location" name="location" placeholder="Location" />
-				<!-- ./location -->
+								</div>
+								<!-- ./form-row -->
 
-				<!-- category -->
-				<label for="category">Category</label>
-				<input type="text" id="category" name="category" placeholder="Category" />
-				<!-- ./category -->
-
-				<!-- price -->
-				<label for="price">Price</label>
-				<input type="text" id="price" name="price" placeholder="Price" />
-				<!-- ./price -->
-
-				<!-- qty -->
-				<label for="qty">Qty</label>
-				<input type="text" id="qty" name="qty" placeholder="Qty" />
-				<!-- ./qty -->
-
-				<!-- unit -->
-				<label for="unit">Unit</label>
-				<input type="text" id="unit" name="unit" placeholder="Unit" />
-				<!-- ./unit -->
-
-				<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-				<button class="btn btn-primary btn-sm ml-1">Add item</button>
-
-			</form>
+								<!-- submit & cancel btns -->
+								<div class="form-row">
+									<div class="form-group">
+										<div class="col">
+											<button class="btn btn-secondary btn-sm" type="submit" data-dismiss="modal">Cancel</button>
+											<button class="btn btn-primary btn-sm" type="submit">Add item</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- ./modal-body -->
+				</div>
+				<!-- ./modal-content -->
+			</div>
+			<!-- ./modal-dialog -->
 		</div>
-		
-		<!-- add location modal -->
-		<div id="locationModal">
-			<form action="" id="locationForm">
+		<!-- ./itemModal -->
+						
+		<!-- locationModal modal -->
+		<div id="locationModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<h3 class="modal-title">New Location</h3>
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+					</div>
+					
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form id="locationForm">
+								<div class="form-row">
+									
+									<!-- name -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="locationName">Name</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="locationName" name="locationName" placeholder="Location" required/>
+										</div>
+									</div>
+									<!-- ./name -->
 
-				<label for="locationName"></label>
-				<input type="text" id="locationName" name="locationName" placeholder="Location" required/>
+								</div>
+								<!-- ./form-row -->
 
-				<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-				<button class="btn btn-primary btn-sm ml-1">Add location</button>
-
-			</form>
+								<!-- submit & cancel btns -->
+								<div class="form-row">
+									<div class="form-group">
+										<div class="col">
+											<button class="btn btn-secondary btn-sm" type="submit" data-dismiss="modal">Cancel</button>
+											<button class="btn btn-primary btn-sm" type="submit">Add location</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- ./modal-body -->
+				</div>
+				<!-- ./modal-content -->
+			</div>
+			<!-- ./modal-dialog -->
 		</div>
-		<!-- ./add location modal -->
+		<!-- ./locationModal modal -->
 		
 		<!-- add category modal -->
-		<div id="categoryModal">
-			<form action="#" id="categoryForm">
-
-				<label for="categoryName"></label>
-				<input type="text" id="categoryName" name="categoryName" placeholder="Category" required/>
-
-				<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-				<button class="btn btn-primary btn-sm ml-1">Add Category</button>
-
-			</form>
-		</div>
-		<!-- ./add category modal -->
-
-		<div class="button-group">
-			<!-- action 1 -->
-			<div>
-				<a href="#" class="btn">+item</a>
-			</div>
-			<!-- /action 1 -->
-			
-			<!-- action 2 -->
-			<div>
-				<a href="#" class="btn">+location</a>
-			</div>
-			<!-- /action 2 -->
-			
-			<!-- action 3 -->
-			<div>
-				<a href="#" class="btn">+category</a>
-			</div>
-			<!-- /action 3 -->
-		</div>
-		
-		<main>
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h3>CATEGORY</h3>
+		<div id="categoryModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<h3 class="modal-title">New Category</h3>
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
 					</div>
-					<div class="col category-details">
-						<p>| 4 items</p>
+					
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form id="categoryForm">
+								<div class="form-row">
+									
+									<!-- name -->
+									<div class="form-group row col-12">
+										<label class="col-sm-6 col-form-label" for="categoryName">Category Name</label>
+										<div class="col-sm-6">
+											<input class="form-control" type="text" id="categoryName" name="categoryName" placeholder="Category" required/>
+										</div>
+									</div>
+									<!-- ./name -->
+
+								</div>
+								<!-- ./form-row -->
+
+								<!-- submit & cancel btns -->
+								<div class="form-row">
+									<div class="form-group">
+										<div class="col">
+											<button class="btn btn-secondary btn-sm" type="submit" data-dismiss="modal">Cancel</button>
+											<button class="btn btn-primary btn-sm" type="submit">Add Category</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
-					<div class="col category-details">
-						<p>20 items total including inventory</p>
-					</div>
+					<!-- ./modal-body -->
 				</div>
-				<div class="row">
-					<div class="col">
-						<div class="item">
-							<!-- item status & qty -->
-							<div class="row">
-								<div class="item-data item-status"></div>
-								<div class="item-data item-qty">
-									<p>00</p>
-								</div>
-							</div>
-							<!-- ./item status & qty -->
-							
-							<!-- item category -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-category">Category Name</div>
-								</div>
-							</div>
-							<!-- ./item category -->
-							
-							<!-- item name -->
-							<div class="row">
-								<div class="col-12">
-									<h4 class="item-data">Item Name</h4>
-								</div>
-							</div>
-							<!-- ./item name -->
-							
-							<!-- item location -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-data item-location">Location Name<br></div>
-								</div>
-							</div>
-							<!-- ./item location -->
-						</div>
-						<!-- ./item -->
-					</div>
-					<!-- ./col -->
-					
-					<div class="col">
-						<div class="item">
-							<!-- item status & qty -->
-							<div class="row">
-								<div class="item-data item-status"></div>
-								<div class="item-data item-qty">
-									<p>00</p>
-								</div>
-							</div>
-							<!-- ./item status & qty -->
-							
-							<!-- item category -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-category">Category Name</div>
-								</div>
-							</div>
-							<!-- ./item category -->
-							
-							<!-- item name -->
-							<div class="row">
-								<div class="col-12">
-									<h4 class="item-data">Item Name</h4>
-								</div>
-							</div>
-							<!-- ./item name -->
-							
-							<!-- item location -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-data item-location">Location Name<br></div>
-								</div>
-							</div>
-							<!-- ./item location -->
-						</div>
-						<!-- ./item -->
-					</div>
-					<!-- ./col -->
-					
-					<div class="col">
-						<div class="item">
-							<!-- item status & qty -->
-							<div class="row">
-								<div class="item-data item-status"></div>
-								<div class="item-data item-qty">
-									<p>00</p>
-								</div>
-							</div>
-							<!-- ./item status & qty -->
-							
-							<!-- item category -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-category">Category Name</div>
-								</div>
-							</div>
-							<!-- ./item category -->
-							
-							<!-- item name -->
-							<div class="row">
-								<div class="col-12">
-									<h4 class="item-data">Item Name</h4>
-								</div>
-							</div>
-							<!-- ./item name -->
-							
-							<!-- item location -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-data item-location">Location Name<br></div>
-								</div>
-							</div>
-							<!-- ./item location -->
-						</div>
-						<!-- ./item -->
-					</div>
-					<!-- ./col -->
-					
-					<div class="col">
-						<div class="item">
-							<!-- item status & qty -->
-							<div class="row">
-								<div class="item-data item-status"></div>
-								<div class="item-data item-qty">
-									<p>00</p>
-								</div>
-							</div>
-							<!-- ./item status & qty -->
-							
-							<!-- item category -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-category">Category Name</div>
-								</div>
-							</div>
-							<!-- ./item category -->
-							
-							<!-- item name -->
-							<div class="row">
-								<div class="col-12">
-									<h4 class="item-data">Item Name</h4>
-								</div>
-							</div>
-							<!-- ./item name -->
-							
-							<!-- item location -->
-							<div class="row">
-								<div class="col-12">
-									<div class="item-data item-location">Location Name<br></div>
-								</div>
-							</div>
-							<!-- ./item location -->
-						</div>
-						<!-- ./item -->
-					</div>
-					<!-- ./col -->
-				</div>
-				<!-- ./row -->
+				<!-- ./modal-content -->
 			</div>
-			<!-- ./container -->
-		</main>
+			<!-- ./modal-dialog -->
+		</div>
+		<!-- ./categoryModal modal -->
+			
+		<div class="container">
+			<div class="row p-0">
+				<div class="col align-items-center">
+					<h3 class="h4">Inventory</h3>
+				</div>
+				<div class="col">
+					<p><span id="nDisplayed">1</span> item |  <span id="nTotal">0</span> total</p>
+				</div>
+			</div>
+			<section class="pt-5">
+				<div class="container">
+					<div class="row align-items-center justify-content-center">
+						<div id="action-btns" class="col-12 col-sm-8 btn-group" role="group" aria-label="action buttons">
+							<!-- action buttons -->
+							<button id="addItem" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Item</button>
+							<button id="addLocation" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Location</button>
+							<button id="addCategory" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Category</button>
+						</div>
+			</div>
+
+			
+			<div class="row item-grid">
+				<!-- method 1 -->
+				<div class="col-6">
+					<ul class="list-unstyled">
+						<h4 class="item-name">Item</h4>
+					
+						<li class="itemCategory h6">
+							Category
+						</li>
+						<li class="itemLocation h6">
+							Location
+						</li>
+						<li class="itemPrice h5">
+							$0.00
+						</li>
+						<li class="itemQty h5">
+							000
+						</li>
+					</ul>
+				</div>
+				<!-- ./item column -->
+			</div>
+			<!-- ./row -->
+		</div>
+		<!-- ./container -->
+		</div>
 		<footer>
 			<p>&copy; 2021 <a class="footer-link" href="ialbertmartinez.com">Albert Martinez</a></p>
 		</footer>
+		
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/popper.js/dist/popper.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	</body>
 </html>
