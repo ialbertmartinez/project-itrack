@@ -49,72 +49,72 @@
 					
 					<div class="modal-body">
 						<div class="container-fluid">
-							<form id="itemForm">
+							<form id="itemForm" class="d-block py-4">
 								<div class="form-row">
-									
+							
 									<!-- name -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="name">Name</label>
+									<div class="form-group row col-12 pl-4">
+										<label class="col-sm-6 col-form-label" for="itemName">Name</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="name" name="name" placeholder="Item Name" />
+											<input class="form-control" type="text" id="itemName" name="itemName" placeholder="Item Name" />
 										</div>
 									</div>
 									<!-- ./name -->
-									
+							
 									<!-- location -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="location">Location</label>
+									<div class="form-group row col-12 pl-4">
+										<label class="col-sm-6 col-form-label" for="itemLocation">Location</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="location" name="location" placeholder="Location" />
+											<input class="form-control" type="text" id="itemLocation" name="itemLocation" placeholder="Location" />
 										</div>
 									</div>
 									<!-- ./location -->
-									
+							
 									<!-- category -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="category">Category</label>
+									<div class="form-group row col-12 pl-4">
+										<label class="col-sm-6 col-form-label" for="itemCategory">Category</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="category" name="category" placeholder="Category" />
+											<input class="form-control" type="text" id="itemCategory" name="itemCategory" placeholder="Category" />
 										</div>
 									</div>
 									<!-- ./category -->
-									
+							
 									<!-- price -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="price">Price</label>
+									<div class="form-group row col-12 pl-4">
+										<label class="col-sm-6 col-form-label" for="itemPrice">Price</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="price" name="price" placeholder="Price" />
+											<input class="form-control" type="text" id="itemPrice" name="itemPrice" placeholder="Price" />
 										</div>
 									</div>
 									<!-- ./price -->
-									
+							
 									<!-- qty -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="qty">Qty</label>
+									<div class="form-group row col-12 pl-4">
+										<label class="col-sm-6 col-form-label" for="itemQty">Qty</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="qty" name="qty" placeholder="Qty" />
+											<input class="form-control" type="text" id="itemQty" name="itemQty" placeholder="Qty" />
 										</div>
 									</div>
 									<!-- ./qty -->
-									
+							
 									<!-- unit -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="unit">Unit</label>
+									<div class="form-group row col-12 pl-4">
+										<label class="col-sm-6 col-form-label" for="itemX">Notes</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="unit" name="unit" placeholder="Unit" />
+											<input class="form-control" type="text" id="itemX" name="itemX"
+												placeholder="Enter any extra info on item" />
 										</div>
 									</div>
 									<!-- ./unit -->
-
+							
 								</div>
 								<!-- ./form-row -->
-
+							
 								<!-- submit & cancel btns -->
 								<div class="form-row">
 									<div class="form-group">
 										<div class="col">
-											<button class="btn btn-secondary btn-sm" type="submit" data-dismiss="modal">Cancel</button>
-											<button class="btn btn-primary btn-sm" type="submit">Add item</button>
+											<button class="btn btn-primary btn-lg" type="submit" value="Add Item">Add item</button>
 										</div>
 									</div>
 								</div>
@@ -241,7 +241,16 @@
 							<button id="addLocation" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Location</button>
 							<button id="addCategory" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Category</button>
 						</div>
-			</div>
+					</div>
+				</div>
+			</section>
+			<section class="pt-5">
+				<div class="container">
+					<div class="row" id="item-grid">
+						<!-- Dynamic items will be placed here -->
+					</div>
+				</div>
+			</section>
 
 			
 			<div class="row item-grid">
