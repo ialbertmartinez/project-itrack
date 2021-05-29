@@ -4,28 +4,49 @@ $color-pale: #F3BCBC;
 $color-teal: #17A2B8;
 $color-mid: #F41B1B;
 $color-dark: #3D1308;
+$drinks: #6CCFF6;
+$food:#EA9000;
+$jewelry: #98CE00;
+$clothes: #757780;
 $color-black-transparent: rgba(0, 0, 0, 0.5);
 $color-grey-lite: #F1F0F2;
 $color-grey: #DBDBDB;
 $color-grey-dark: #7F7F7F;
+
 $body-font: "Open Sans", sans-serif;
 $header-font: "Montserrat", sans-serif;
 
 
-
-body { font-family: $body-font; }
+:root { font-size: 16px; }
+html { font-size: 62.5%; }
+body { 
+	font-family: $body-font; 
+	font-size: 1rem;
+}
 
 h1, h2, h3 {
-	font-family: $header-font; }
-
-h2 {
+	font-family: $header-font; 
 	color: $color-primary;
+}
+
+p {
+	font-size: inherit;
+	font-size: 1rem;
 }
 
 a, a:hover {
 	 color: inherit;
 	 text-decoration: none;
 }
+.btn.btn-info {
+	background-color: $color-primary;
+	border-color: $color-mid;
+	&:hover {
+		background-color: $color-mid;
+		border-color: $color-primary;
+	}
+}
+
 
 /* my custom css to match youtube-icon with bootstrap-social icons */
 a.btn-youtube {
@@ -50,7 +71,7 @@ a.btn-youtube > i {
 .container > .row {
 	box-sizing:border-box;
 	padding-top: 10px;
-	padding-bottom: 20px;
+	// padding-bottom: 20px;
 }
 
 // Fixed Width Icons
@@ -61,3 +82,83 @@ a.btn-youtube > i {
 	font-size: 0.85rem;
   }
 
+  @media (min-width: 768px) {
+	#item-grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		padding: 0;
+		margin: 0;
+		// list-style: none;
+	}
+
+	#item-grid .item-block {
+		padding: 5px;
+		width: 200px;
+		height: 100%;
+		margin-top: 10px;
+		text-align: center;
+	}
+  }
+
+  .item-block {
+	min-height:  200px;
+}
+
+.item-block h4 {
+	margin-top: 45px;
+
+}
+
+
+.item-block p:nth-child(2) {
+	font-size: 0.9rem;
+	margin-top: -10px;
+	color: #F3BCBc;
+}
+
+.item-block p:nth-child(3) {
+	position: absolute;
+	top: -1px;
+	left: 6px;
+	color: white;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+.item-block p:nth-child(3).drinks {
+	background: $drinks;
+}
+
+.item-block p:nth-child(3).food {
+	background: $food;
+}
+
+.item-block p:nth-child(3).jewelry {
+	background: $jewelry;
+}
+
+.item-block p:nth-child(3).clothes {
+	background: $clothes;
+}
+
+.item-block p:nth-child(4) {
+	position: absolute;
+	bottom: 13px;
+	right: 1rem;
+	font-size: 1.6rem;
+}
+
+.item-block p:nth-child(5) {
+	position: absolute;
+	bottom: 13px;
+	left: 1rem;
+	font-size: 1.6rem;
+}
+
+.item-block p:nth-child(6) {
+	position: absolute;
+	bottom: 5px;
+	left: 17px;
+	font-size: 0.7rem;
+}

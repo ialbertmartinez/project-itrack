@@ -74,11 +74,18 @@
 									<div class="form-group row col-12 pl-4">
 										<label class="col-sm-6 col-form-label" for="itemCategory">Category</label>
 										<div class="col-sm-6">
-											<input class="form-control" type="text" id="itemCategory" name="itemCategory" placeholder="Category" />
+											<select class="form-control" name="itemCategory" id="itemCategory">
+												<option value="0">Select category...</option>
+												<option value="drinks">drinks</option>
+												<option value="food">food</option>
+												<option value="jewelry">jewelry</option>
+												<option value="clothes">clothes</option>
+											</select>
 										</div>
 									</div>
+									
 									<!-- ./category -->
-							
+									
 									<!-- price -->
 									<div class="form-group row col-12 pl-4">
 										<label class="col-sm-6 col-form-label" for="itemPrice">Price</label>
@@ -114,6 +121,7 @@
 								<div class="form-row">
 									<div class="form-group">
 										<div class="col">
+											<button class="btn btn-secondary btn-lg" type="submit" >Cancel</button>
 											<button class="btn btn-primary btn-lg" type="submit" value="Add Item">Add item</button>
 										</div>
 									</div>
@@ -129,158 +137,43 @@
 		</div>
 		<!-- ./itemModal -->
 						
-		<!-- locationModal modal -->
-		<div id="locationModal" class="modal fade" role="dialog">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					
-					<div class="modal-header">
-						<h3 class="modal-title">New Location</h3>
-						<button class="close" type="button" data-dismiss="modal">&times;</button>
+		<header class="pt-5">
+			<div class="container">
+				<div class="row p-0">
+					<div class="col align-items-center">
+						<h2 class="h4">Inventory</h2>
 					</div>
-					
-					<div class="modal-body">
-						<div class="container-fluid">
-							<form id="locationForm">
-								<div class="form-row">
-									
-									<!-- name -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="locationName">Name</label>
-										<div class="col-sm-6">
-											<input class="form-control" type="text" id="locationName" name="locationName" placeholder="Location" required/>
-										</div>
-									</div>
-									<!-- ./name -->
-
-								</div>
-								<!-- ./form-row -->
-
-								<!-- submit & cancel btns -->
-								<div class="form-row">
-									<div class="form-group">
-										<div class="col">
-											<button class="btn btn-secondary btn-sm" type="submit" data-dismiss="modal">Cancel</button>
-											<button class="btn btn-primary btn-sm" type="submit">Add location</button>
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
+					<div class="col">
+						<p><span id="nDisplayed">0</span> items
 					</div>
-					<!-- ./modal-body -->
-				</div>
-				<!-- ./modal-content -->
-			</div>
-			<!-- ./modal-dialog -->
-		</div>
-		<!-- ./locationModal modal -->
-		
-		<!-- add category modal -->
-		<div id="categoryModal" class="modal fade" role="dialog">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					
-					<div class="modal-header">
-						<h3 class="modal-title">New Category</h3>
-						<button class="close" type="button" data-dismiss="modal">&times;</button>
-					</div>
-					
-					<div class="modal-body">
-						<div class="container-fluid">
-							<form id="categoryForm">
-								<div class="form-row">
-									
-									<!-- name -->
-									<div class="form-group row col-12">
-										<label class="col-sm-6 col-form-label" for="categoryName">Category Name</label>
-										<div class="col-sm-6">
-											<input class="form-control" type="text" id="categoryName" name="categoryName" placeholder="Category" required/>
-										</div>
-									</div>
-									<!-- ./name -->
-
-								</div>
-								<!-- ./form-row -->
-
-								<!-- submit & cancel btns -->
-								<div class="form-row">
-									<div class="form-group">
-										<div class="col">
-											<button class="btn btn-secondary btn-sm" type="submit" data-dismiss="modal">Cancel</button>
-											<button class="btn btn-primary btn-sm" type="submit">Add Category</button>
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-					<!-- ./modal-body -->
-				</div>
-				<!-- ./modal-content -->
-			</div>
-			<!-- ./modal-dialog -->
-		</div>
-		<!-- ./categoryModal modal -->
-			
-		<div class="container">
-			<div class="row p-0">
-				<div class="col align-items-center">
-					<h3 class="h4">Inventory</h3>
-				</div>
-				<div class="col">
-					<p><span id="nDisplayed">1</span> item |  <span id="nTotal">0</span> total</p>
 				</div>
 			</div>
-			<section class="pt-5">
-				<div class="container">
-					<div class="row align-items-center justify-content-center">
-						<div id="action-btns" class="col-12 col-sm-8 btn-group" role="group" aria-label="action buttons">
-							<!-- action buttons -->
-							<button id="addItem" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Item</button>
-							<button id="addLocation" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Location</button>
-							<button id="addCategory" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Category</button>
-						</div>
+		</header>	
+		<section class="pt-5">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div id="action-btns" class="col-12 col-sm-8 btn-group" role="group" aria-label="action buttons">
+						<!-- action buttons -->
+						<button id="addItem" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Item</button>
 					</div>
 				</div>
-			</section>
-			<section class="pt-5">
-				<div class="container">
-					<div class="row" id="item-grid">
-						<!-- Dynamic items will be placed here -->
-					</div>
-				</div>
-			</section>
-
-			
-			<div class="row item-grid">
-				<!-- method 1 -->
-				<div class="col-6">
-					<ul class="list-unstyled">
-						<h4 class="item-name">Item</h4>
-					
-						<li class="itemCategory h6">
-							Category
-						</li>
-						<li class="itemLocation h6">
-							Location
-						</li>
-						<li class="itemPrice h5">
-							$0.00
-						</li>
-						<li class="itemQty h5">
-							000
-						</li>
-					</ul>
-				</div>
-				<!-- ./item column -->
 			</div>
-			<!-- ./row -->
-		</div>
-		<!-- ./container -->
-		</div>
+		</section>
+		<section class="pt-5">
+			<div class="container">
+				<div class="row align-items-center justify-content-center" id="item-grid">
+						
+				</div>
+				<!-- ./#item-grid -->
+			</div>
+			<!-- ./container -->
+		</section>
 		<footer>
-			<p>&copy; 2021 <a class="footer-link" href="ialbertmartinez.com">Albert Martinez</a></p>
+			<div class="container">
+				<div class="row align-items-center justify-content-center pt-5 mt-3">
+					<p>&copy; 2021 <a class="footer-link" href="ialbertmartinez.com">Albert Martinez</a></p>
+				</div>
+			</div>
 		</footer>
 		
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
