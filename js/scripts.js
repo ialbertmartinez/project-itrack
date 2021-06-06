@@ -1,39 +1,62 @@
 $(function () {
-	$("#addItem").click(function () {
-		$("#itemModal").modal("show");
-	});
-
-	$("#addLocation").click(function () {
-		$("#locationModal").modal("show");
-	});
-
-	$("#addCategory").click(function () {
-		$("#categoryModal").modal("show");
+	$("#addItem").click(function(){ 
+		$("#itemModal").modal("show"); 
 	});
 
 	const itemForm = document.getElementById("itemForm");
-	let itemCount = document.getElementById("nDisplayed");
-	var count = 0;
-
-	// when form submits call input2data function
-	itemForm.addEventListener('submit', handleSubmit, false);
+	let nItems = document.getElementById("nItems");
+	let nTotal = document.getElementById("nTotal");
 	var itemFormEl;
+
+	itemForm.addEventListener('submit', handleSubmit, false); // trigger handleSubmit() when form submits
+
 	function handleSubmit(e) {
 		e.preventDefault(); // Prevent submitting form
-		itemFormEl = itemForm.elements;
-
-		const inputs = itemForm.querySelectorAll('input');
-		let form = {}; // Create form objec to store user input
-
+		let inputs = itemForm.querySelectorAll('input');
+		let form = {}; // Create an object to store user input as 'key:value' pairs
+		itemFormEl = itemForm.elements; // Gather all form elements into a list
+		let itemNameForm = document.getElementById("itemName");
+		let itemLocationForm = document.getElementById("itemLocation");
+		let itemCategoryForm = document.getElementById("itemCategory");
+		let itemPriceForm = document.getElementById("itemPrice");
+		let itemQtyForm = document.getElementById("itemQty");
+		let itemXForm = document.getElementById("itemX");
+		// console.log(itemFormEl);
 		// Iterate over inputs | construct the form objects key: value pairs
-		inputs.forEach(({ name, value }) => form[name] = value);
+		inputs.forEach(({ name, value }) => { form[name] = value;});
+		populateStorage();
+		makeItem(form);
 		// console.log(form); // -> Code checkpoint
-		createItem(form);
+		// populateStorage();
+	}
+	function populateStorage(){
+		let itemID = "item_"+Number(localStorage.count);
+		localStorage.setItem("itemName_"+ itemID, itemFormEl["itemName"].value);
+		localStorage.setItem("itemLocation_"+ itemID, itemFormEl["itemLocation"].value);
+		localStorage.setItem("itemCategory_"+ itemID, itemFormEl["itemCategory"].value);
+		localStorage.setItem("itemPrice_"+ itemID, itemFormEl["itemPrice"].value);
+		localStorage.setItem("itemQty_"+ itemID, itemFormEl["itemQty"].value);
+		localStorage.setItem("itemX_"+ itemID, itemFormEl["itemX"].value);
+		makeItem(itemID);
 	}
 
-	// use user input to craft an item block dynamically
-	function createItem(formData) {
-		// create html elements
+	function makeItem(form){
+		let iID = localStorage.count;
+		let itemName = document.createTextNode(localStorage.getItem("itemName_"+iID));
+		let itemLocation = document.createTextNode(localStorage.getItem("itemLocation_"+iID));
+		let itemCategory = document.createTextNode(localStorage.getItem("itemCategory_"+iID));
+		let itemPrice = document.createTextNode("$"+localStorage.getItem("itemPrice_"+iID));
+		let itemQty = document.createTextNode(localStorage.getItem("itemQty_"+iID));
+		let itemX = document.createTextNode(localStorage.getItem("itemX_"+iID));
+		
+		console.log("itemName is " + localStorage.getItem(itemName));
+			// let iLocation = document.createTextNode(formData.itemLocation);
+			// let iCategory = document.createTextNode(itemFormEl["itemCategory"].value);
+			// let iPrice = document.createTextNode("$"+formData.itemPrice);
+			// let iQty = document.createTextNode(itemFormEl["itemQty"].value);
+			// let iX = document.createTextNode(formData.itemX);
+
+		// create html elements	
 		const itemGrid = document.getElementById('item-grid');
 		let itemNode1 = document.createElement("h4");
 		let itemNode2 = document.createElement("p");
@@ -47,24 +70,24 @@ $(function () {
 		divNode.className = "item-block bg-dark text-light col-6 col-sm-2 p-3 mx-2";
 
 		// create textNodes to house user data
-		let iName = document.createTextNode(formData.itemName);
-		let iLocation = document.createTextNode(formData.itemLocation);
-		let iCategory = document.createTextNode(itemFormEl["itemCategory"].value);
-		let iPrice = document.createTextNode("$"+formData.itemPrice);
-		let iQty = document.createTextNode(formData.itemQty);
-		let iX = document.createTextNode(formData.itemX);
+		// let iName = document.createTextNode(formData.itemName);
+		// let iLocation = document.createTextNode(formData.itemLocation);
+		// let iCategory = document.createTextNode(itemFormEl["itemCategory"].value);
+		// let iPrice = document.createTextNode("$"+formData.itemPrice);
+		// let iQty = document.createTextNode(itemFormEl["itemQty"].value);
+		// let iX = document.createTextNode(formData.itemX);
 		// console.log("Category: " + itemFormEl["itemCategory"].value);
 	
 		// append textNode to html Element
-		itemNode1.appendChild(iName);
-		itemNode2.appendChild(iLocation);
-		itemNode3.appendChild(iCategory);
-		itemNode4.appendChild(iPrice);
-		itemNode5.appendChild(iQty);
-		itemNode6.appendChild(iX);		
+		itemNode1.appendChild(itemName);
+		itemNode2.appendChild(itemLocation);
+		itemNode3.appendChild(itemCategory);
+		itemNode4.appendChild(itemPrice);
+		itemNode5.appendChild(itemQty);
+		itemNode6.appendChild(itemX);		
 		
-		// place the appropriate class based on category chosen
-		let cat = itemFormEl["itemCategory"].value;
+		// place corresponding category class name to category seleected by user
+		let cat = localStorage.getItem("itemCategory_" + iID);
 		if(cat === "drinks") {
 			itemNode3.className = "drinks";
 		} else 
@@ -85,7 +108,62 @@ $(function () {
 		divNode.appendChild(itemNode4);
 		divNode.appendChild(itemNode5);
 		divNode.appendChild(itemNode6);
-		count++;
-		itemCount.innerHTML = count;
+		
+
+		
 	}
 });
+/*
+To-Do List 6/2/2021
+3 IMPORTANT ADDITIONS REQUIRED
+	!! Difference between nItems and nTotal !!
+	!! example: nItems = 3; nTotal = 12;
+	!! breakdown: I have 3 items and 12 items total.
+	!! item 1: Coca-Cola: 5 cans
+	!! item 2: Sprite: 3 cans
+	!! item 3: Mountain Dew-CodeRed: 4 cans
+	!! 3 items in inventory | 12 items in Total	
+	
+	1. Add items to inventory
+		X-use a form to allow user to add items to inventory including item quantity
+	2. Remove items from inventory
+		-auto or manual
+			-create a function named 'removeItem'
+			-only called automatically or event
+
+			autoatically:  function will be called when the localStorage.count reaches 0
+				-decreaseCount method is used to decrement item's individual qty
+				-get item qty value and subtract 1
+				-check if qty reached 0
+					true: call removeItem()
+					false: set count to the new value in item.qty and send data to the dom for rendering
+			manually: user decides to remove item from inventory. Removes the item and all its stock.
+				-on the item you woould like to remove, click top right "x" icon and confirm to delete
+				-once user confirms to delete, same process from automatically occurs
+		-Add a button to each item
+		when user wants to quickly remove 1 item completely from inventory
+	3. Keep count of the number of items in inventoy
+		3a. update the number of items when something is sold or added
+		3b. update the total number of items in inventory when items are added or removed
+	4. 
+
+*/
+function increaseCount(){
+	if(typeof(Storage) !== "undefined") { // checks browser supports HTML5 Storage API
+		if(localStorage.count) { // check if localStorage.count exists in browser's localStorage
+			// if localStorage.count exists: increment localStorage by 1
+			localStorage.count = Number(localStorage.count) + 1;
+		} else {
+			// if localStorage.count does not exist yet: set localStorage.count eq. to 1
+			localStorage.count = 1;
+		}
+		nItems.innerHTML = localStorage.count;
+	} 
+	else {
+		nItems.innerHTML = "Sorry your browser doesn;t supprt HTML 5 Web Storage...";
+	}
+}
+function decreaseCount(){
+	localStorage.count = Number(localStorage.count) - 1;
+	nItems.innerHTML = localStorage.count;
+}

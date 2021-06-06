@@ -30,9 +30,8 @@
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a href="#" class="nav-link">Inventory</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">Locations</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">History</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
 					</ul>
 				</div>
 			</div>
@@ -144,7 +143,7 @@
 						<h2 class="h4">Inventory</h2>
 					</div>
 					<div class="col">
-						<p><span id="nDisplayed">0</span> items
+						<p><span id="nItems">0</span> items | <span id="nTotal">0</span> items total</p>
 					</div>
 				</div>
 			</div>
@@ -162,7 +161,111 @@
 		<section class="pt-5">
 			<div class="container">
 				<div class="row align-items-center justify-content-center" id="item-grid">
+					
+					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">	
+						<div class="card-header">
+							<h4 class="card=title">Life Saver Gummies</h4>
+						</div>
 						
+						<div class="card-body">
+							<p class="card-text">maze</p>
+							<p class="food card-text">Food</p>
+							<p class="card-text">$3</p>
+							<p class="card-text">3</p>
+							<p class="card-text">bags</p>
+						</div>
+						
+						<div class="card-footer">
+							<div class="btn-group" role="group" aria-label="inventory mod buttons">
+								<!-- action buttons -->
+								<button type="button" class="addItemBtn btn btn-info">
+									<i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i>
+								</button>
+								<button type="button" class="minusItemBtn btn btn-info">
+									<i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i>
+								</button>
+								<button type="button" class="removeItemBtn btn btn-info">
+									<i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				
+				
+					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">
+						
+						<div class="card-header">
+							<h4 class="card=title">Bagel Chips</h4>
+						</div>
+						
+						<div class="card-body">
+							<p class="card-text">Maze</p>
+							<p class="food card-text">Food</p>
+							<p class="card-text">$3</p>
+							<p class="card-text">10</p>
+							<p class="card-text">bags</p>
+						</div>
+						
+						<div class="card-footer">
+							<div class="btn-group" role="group" aria-label="inventory mod buttons">
+								<!-- action buttons -->
+								<button type="button" class="addItemBtn btn btn-info"><i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i></button>
+								<button type="button" class="minusItemBtn btn btn-info"><i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i></button>
+								<button type="button" class="removeItemBtn btn btn-info"><i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i></button>
+							</div>
+						</div>
+					</div>
+				
+				
+					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">
+						
+						<div class="card-header">
+							<h4 class="card=title">Coke</h4>
+						</div>
+						
+						<div class="card-body">
+							<p class="card-text">maze</p>
+							<p class="drinks card-text">Drinks</p>
+							<p class="card-text">$2</p>
+							<p class="card-text">10</p>
+							<p class="card-text">cans</p>
+						</div>
+						
+						<div class="card-footer">
+							<div class="btn-group" role="group" aria-label="inventory mod buttons">
+								<!-- action buttons -->
+								<button type="button" class="addItemBtn btn btn-info"><i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i></button>
+								<button type="button" class="minusItemBtn btn btn-info"><i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i></button>
+								<button type="button" class="removeItemBtn btn btn-info"><i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i></button>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">
+						
+						<div class="card-header">
+							<h4 class="card=title">Water</h4>
+						</div>
+						
+						<div class="card-body">
+							<p class="card-text">maze</p>
+							<p class="drinks card-text">Drinks</p>
+							<p class="card-text">$2</p>
+							<p class="card-text">10</p>
+							<p class="card-text">bottles</p>
+						</div>
+						
+						<div class="card-footer">
+							<div class="btn-group" role="group" aria-label="inventory mod buttons">
+								<!-- action buttons -->
+								<button type="button" class="addItemBtn btn btn-info"><i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i></button>
+								<button type="button" class="minusItemBtn btn btn-info"><i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i></button>
+								<button type="button" class="removeItemBtn btn btn-info"><i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i></button>
+							</div>
+						</div>
+					</div>
+
 				</div>
 				<!-- ./#item-grid -->
 			</div>
@@ -176,9 +279,9 @@
 			</div>
 		</footer>
 		
-		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 		<script src="node_modules/popper.js/dist/popper.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="js/scripts.js"></script>
+		<script src="js/scripts2.js"></script>
 	</body>
 </html>
