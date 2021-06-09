@@ -13,7 +13,6 @@
 		 <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
 		 <link rel="stylesheet" href="css/styles.css" />
 		 <!-- endbuild -->
-		 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300;400;800&display=swap">
 	</head>
 		
 	<body>
@@ -53,21 +52,12 @@
 							
 									<!-- name -->
 									<div class="form-group row col-12 pl-4">
-										<label class="col-sm-6 col-form-label" for="itemName">Name</label>
+										<label class="col-sm-6 col-form-label" for="itemName">Item Name</label>
 										<div class="col-sm-6">
 											<input class="form-control" type="text" id="itemName" name="itemName" placeholder="Item Name" />
 										</div>
 									</div>
 									<!-- ./name -->
-							
-									<!-- location -->
-									<div class="form-group row col-12 pl-4">
-										<label class="col-sm-6 col-form-label" for="itemLocation">Location</label>
-										<div class="col-sm-6">
-											<input class="form-control" type="text" id="itemLocation" name="itemLocation" placeholder="Location" />
-										</div>
-									</div>
-									<!-- ./location -->
 							
 									<!-- category -->
 									<div class="form-group row col-12 pl-4">
@@ -82,7 +72,6 @@
 											</select>
 										</div>
 									</div>
-									
 									<!-- ./category -->
 									
 									<!-- price -->
@@ -136,14 +125,14 @@
 		</div>
 		<!-- ./itemModal -->
 						
-		<header class="pt-5">
+		<header class="pt-3">
 			<div class="container">
 				<div class="row p-0">
-					<div class="col align-items-center">
+					<div class="col-auto align-items-center">
 						<h2 class="h4">Inventory</h2>
 					</div>
-					<div class="col">
-						<p><span id="nItems">0</span> items | <span id="nTotal">0</span> items total</p>
+					<div class="col-auto">
+						<p><small>items: <span id="nItems">4</span> | inventory: <span id="nTotal">40</span></small></p>
 					</div>
 				</div>
 			</div>
@@ -153,7 +142,8 @@
 				<div class="row align-items-center justify-content-center">
 					<div id="action-btns" class="col-12 col-sm-8 btn-group" role="group" aria-label="action buttons">
 						<!-- action buttons -->
-						<button id="addItem" type="button" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Item</button>
+						<button id="itemFormBtn" type="button" class="btn btn-info">
+							<i class="fa fa-plus fa-fw" aria-hidden="true"></i> Item</button>
 					</div>
 				</div>
 			</div>
@@ -161,108 +151,60 @@
 		<section class="pt-5">
 			<div class="container">
 				<div class="row align-items-center justify-content-center" id="item-grid">
-					
-					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">	
-						<div class="card-header">
-							<h4 class="card=title">Life Saver Gummies</h4>
+				
+					<div class="item-block card bg-dark text-light col-auto col-sm-6 col-md-4 p-3 mx-2">
+						
+						<div class="card-header py-2">
+							<h4 class="card-title">Bagel Chips</h4>
 						</div>
 						
 						<div class="card-body">
-							<p class="card-text">maze</p>
-							<p class="food card-text">Food</p>
-							<p class="card-text">$3</p>
-							<p class="card-text">3</p>
-							<p class="card-text">bags</p>
-						</div>
-						
-						<div class="card-footer">
-							<div class="btn-group" role="group" aria-label="inventory mod buttons">
-								<!-- action buttons -->
-								<button type="button" class="addItemBtn btn btn-info">
-									<i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i>
-								</button>
-								<button type="button" class="minusItemBtn btn btn-info">
-									<i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i>
-								</button>
-								<button type="button" class="removeItemBtn btn btn-info">
-									<i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i>
-								</button>
-							</div>
+							<p class="item-category food card-text">Food</p>
+							<p class="item-price card-text">$3</p>
+							<p class="item-qty card-text">10 <small>items</small></p>
+							
 						</div>
 					</div>
-				
-				
-					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">
+
+					<div class="item-block card bg-dark text-light col-auto col-sm-6 col-md-4 p-3 mx-2">
 						
 						<div class="card-header">
-							<h4 class="card=title">Bagel Chips</h4>
+							<h4 class="card-title">Bagel Chips</h4>
 						</div>
 						
 						<div class="card-body">
-							<p class="card-text">Maze</p>
-							<p class="food card-text">Food</p>
-							<p class="card-text">$3</p>
-							<p class="card-text">10</p>
-							<p class="card-text">bags</p>
-						</div>
-						
-						<div class="card-footer">
-							<div class="btn-group" role="group" aria-label="inventory mod buttons">
-								<!-- action buttons -->
-								<button type="button" class="addItemBtn btn btn-info"><i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i></button>
-								<button type="button" class="minusItemBtn btn btn-info"><i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i></button>
-								<button type="button" class="removeItemBtn btn btn-info"><i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i></button>
-							</div>
+							<p class="item-category food card-text">Food</p>
+							<p class="item-price card-text">$3</p>
+							<p class="item-qty card-text">10 <small>items</small></p>
+							
 						</div>
 					</div>
-				
-				
-					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">
+
+					<div class="item-block card bg-dark text-light col-auto col-sm-6 col-md-4 p-3 mx-2">
 						
 						<div class="card-header">
-							<h4 class="card=title">Coke</h4>
+							<h4 class="card-title">Bagel Chips</h4>
 						</div>
 						
 						<div class="card-body">
-							<p class="card-text">maze</p>
-							<p class="drinks card-text">Drinks</p>
-							<p class="card-text">$2</p>
-							<p class="card-text">10</p>
-							<p class="card-text">cans</p>
-						</div>
-						
-						<div class="card-footer">
-							<div class="btn-group" role="group" aria-label="inventory mod buttons">
-								<!-- action buttons -->
-								<button type="button" class="addItemBtn btn btn-info"><i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i></button>
-								<button type="button" class="minusItemBtn btn btn-info"><i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i></button>
-								<button type="button" class="removeItemBtn btn btn-info"><i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i></button>
-							</div>
+							<p class="item-category food card-text">Food</p>
+							<p class="item-price card-text">$3</p>
+							<p class="item-qty card-text">10 <small>items</small></p>
+							
 						</div>
 					</div>
-					
-					
-					<div class="item-block card bg-dark text-white col-5 col-sm-6 col-md-4 p-3 mx-2 card">
+
+					<div class="item-block card bg-dark text-light col-auto col-sm-6 col-md-4 p-3 mx-2">
 						
 						<div class="card-header">
-							<h4 class="card=title">Water</h4>
+							<h4 class="card-title">Bagel Chips</h4>
 						</div>
 						
 						<div class="card-body">
-							<p class="card-text">maze</p>
-							<p class="drinks card-text">Drinks</p>
-							<p class="card-text">$2</p>
-							<p class="card-text">10</p>
-							<p class="card-text">bottles</p>
-						</div>
-						
-						<div class="card-footer">
-							<div class="btn-group" role="group" aria-label="inventory mod buttons">
-								<!-- action buttons -->
-								<button type="button" class="addItemBtn btn btn-info"><i class="fa fa-plus fa-fw" onclick="increaseItem()"aria-hidden="true"></i></button>
-								<button type="button" class="minusItemBtn btn btn-info"><i class="fa fa-minus fa-fw" onclick="descreaseItem()"aria-hidden="true"></i></button>
-								<button type="button" class="removeItemBtn btn btn-info"><i class="fa fa-times fa-fw" onclick="removeItem()"aria-hidden="true"></i></button>
-							</div>
+							<p class="item-category food card-text">Food</p>
+							<p class="item-price card-text">$3</p>
+							<p class="item-qty card-text">10 <small>items</small></p>
+							
 						</div>
 					</div>
 
@@ -270,7 +212,10 @@
 				<!-- ./#item-grid -->
 			</div>
 			<!-- ./container -->
+
 		</section>
+
+
 		<footer>
 			<div class="container">
 				<div class="row align-items-center justify-content-center pt-5 mt-3">
@@ -282,6 +227,6 @@
 		<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 		<script src="node_modules/popper.js/dist/popper.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="js/scripts2.js"></script>
+		<script src="js/scripts.js"></script>
 	</body>
 </html>

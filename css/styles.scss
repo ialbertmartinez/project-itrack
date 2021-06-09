@@ -15,179 +15,188 @@ $color-grey: #DBDBDB;
 $color-grey-dark: #7F7F7F;
 
 $card-height: 100%;
-$body-font: "Open Sans", sans-serif;
+$body-font: "Source Sans Pro", sans-serif;
 $header-font: "Montserrat", sans-serif;
 
 
 :root { font-size: 16px; }
 html { font-size: 62.5%; }
 body { 
-	font-family: $body-font; 
-	font-size: 1rem;
+font-family: $body-font; 
+font-size: 1rem;
 }
 
 h1, h2, h3 {
-	font-family: $header-font; 
-	color: $color-primary;
+font-family: $header-font; 
+color: $color-primary;
 }
 
 p {
-	font-size: inherit;
-	font-size: 1rem;
+font-size: inherit;
 }
 
 a, a:hover {
-	 color: inherit;
-	 text-decoration: none;
+color: inherit;
+text-decoration: none;
 }
+
 .btn.btn-info {
-	background-color: $color-primary;
+	background-color:$color-primary;
 	border-color: $color-mid;
 	&:hover {
 		background-color: $color-mid;
 		border-color: $color-primary;
 	}
+	&:active {
+		background-color: $color-primary;
+		border-color: $color-mid;
+	}
+	&:focus { 
+		background-color: $color-black-transparent;
+		border-color: $color-mid;
+	}
 }
-
+header p {
+	span {
+		font-weight: bold;
+	}
+}
 
 /* my custom css to match youtube-icon with bootstrap-social icons */
 a.btn-youtube {
-	background-color: #f00;
+background-color: #f00;
 }
 
 a.btn-youtube > i {
-	color: $color-white;
-	width: 50%;
-	height: auto;
+color: $color-white;
+width: 50%;
+height: auto;
 }
 
-#itemModal, #locationModal, #categoryModal {
+#itemModal {
 	.modal-header {
 		background-color: $color-grey-lite;
-		h3 {
+		h3 {	
 			color: $color-dark;
 		}
 	}
 }
 
 .container > .row {
-	box-sizing:border-box;
-	padding-top: 10px;
-	// padding-bottom: 20px;
+box-sizing:border-box;
+padding-top: 10px;
 }
 
 // Fixed Width Icons
 // -------------------------
 .fa-fw {
-	width: (18em / 14);
-	text-align: center;
-	font-size: 0.85rem;
-  }
-
-  #item-grid {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	padding: 0;
-	margin: 0;
-	// list-style: none;
+width: (18em / 14);
+text-align: center;
+font-size: 0.85rem;
 }
 
 #item-grid .item-block {
-	padding: 5px;
-	width: 200px;
-	height: 100%;
-	margin-top: 10px;
-	text-align: center;
+padding: 5px;
+max-width: 200px;
+width: 100%;
+height: 100%;
+margin-top: 10px;
+text-align: left;
 }
 
+#item-grid {
+display: flex;
+flex-flow: row wrap;
+padding: 0;
+margin: 0;
+// list-style: none;
+}
 
 .item-block {
 	min-height:  200px;
 }
 
-@media (min-width: 768px) {
-	#item-grid {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-around;
-		padding: 0;
-		margin: 0;
-		// list-style: none;
+.item-block.card {
+	background-image: url("../img/icons/i_food_lined.svg");
+}
+.item-block .card-header {
+	h4.card-title {
+		font-size: 2.2rem;
+		font-weight: 600;
+		letter-spacing: 0.02px;
 	}
-
-	#item-grid .item-block {
-		padding: 5px;
-		width: 200px;
-		height: 100%;
-		margin-top: 10px;
+}
+.item-block .card-body {
+	background-color: rgba(0,0,0, 0.6);
+	p.item-price {
+		font-family:inherit;
+		font-size: 1.6rem;
+		font-weight: 700;
+		line-height: 1.5;
 		text-align: center;
 	}
-
-
-	.item-block {
-		min-height:  200px;
-	}
-
-	.item-block h4 {
-		margin-top: 45px;
-
-	}
-
-	// location
-	.item-block p:nth-child(2) {
-		font-size: 0.9rem;
-		margin-top: -10px;
-		color:$color-grey;
-	}
-
-	// category
-	.item-block p:nth-child(3) {
-		position: absolute;
-		top: -1px;
-		left: 6px;
-		color: $color-white;
-		padding-left: 10px;
-		padding-top: 5px;
-		padding-right: 10px;
-	}
-
-	.item-block p:nth-child(3).drinks { background: $drinks; } // drinks category style
-
-	.item-block p:nth-child(3).food { background: $food; } // food category style
-
-	.item-block p:nth-child(3).jewelry { background: $jewelry; } // jewelry category style
-
-	.item-block p:nth-child(3).clothes { background: $clothes; } // clothes category style
-
-	.item-block p:nth-child(4),
-	.item-block p:nth-child(5),
-	.item-block p:nth-child(6){
-		position: absolute;
-		bottom: 13px;
-		font-size: 1.6rem;
-	}
-	.item-block p:nth-child(4) { right: 1rem; } // price
-
-	.item-block p:nth-child(5) { left: 1rem; } // qty
-
-	.item-block p:nth-child(6) { // notes
-		bottom: 25px;
-		left: 17px;
-		font-size: 0.7rem;
-	}
+	// outline: 1px $food dotted;
 }
 
-.card {
-	height: $card-height;
+.item-block .card-body p.itemPrice  {
+	font-size: 2rem;
+}
+/* 
+------------------------------
+MEDIUM BREAKPOINT STYLES
+------------------------------ 
+*/
+// @media (min-width: 768px) {
+#item-grid {
+// list-style: none;
 }
 
-.card-footer  {
-	.btn-group {
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
+#item-grid .item-block {
+// padding: 5px;
+// width: 200px;
+// height: 100%;
+// margin-top: 10px;
+// text-align: center;
 }
+
+
+.item-block {
+// min-height:  200px;
+}
+
+.item-block .card-body {
+// padding-bottom: 100px;
+}
+
+.item-block h4 {
+// margin-top: 45px;
+
+}
+
+
+.card-body .item-qty {
+color: $color-grey;
+}
+
+// category
+.card-body .item-category {
+color: $color-white;
+padding-left: 10px;
+padding-top: 5px;
+padding-right: 10px;
+}
+
+.card-body p.drinks { background: $drinks; } // drinks category style
+
+.card-body p.food { background: $food; } // food category style
+
+.card-body p.jewelry { background: $jewelry; } // jewelry category style
+
+.card-body p.clothes { background: $clothes; } // clothes category style
+
+
+/* 
+------------------------------
+END - MEDIUM BREAKPOINT STYLES
+------------------------------ 
+*/
