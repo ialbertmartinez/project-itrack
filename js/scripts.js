@@ -35,7 +35,8 @@ fromMakeToDom() serves as the element-maker & DOM injector
 		let divNode = document.createElement("div");
 		let cardHeader = document.createElement("div");
 		let cardBody = document.createElement("div");
-		let cardFooter = document.createElement("div");
+		const qtySuffix = document.querySelectorAll('.card-text.itemQty');
+		const el_smTxt = document.createElement("small");
 
 		itemGrid.appendChild(divNode);
 		divNode = itemGrid.lastElementChild;
@@ -52,6 +53,7 @@ fromMakeToDom() serves as the element-maker & DOM injector
 		const txt_2 = document.createTextNode(`${o.category}`);
 		const txt_3 = document.createTextNode(`$${o.price}`);
 		const txt_4 = document.createTextNode(`${o.qty}`);
+		const smallText = document.createTextNode("<small> items</small>");
 
 		// appending the text nodes to the divNode
 		el_0.appendChild(txt_0);
@@ -59,6 +61,7 @@ fromMakeToDom() serves as the element-maker & DOM injector
 		el_2.appendChild(txt_2);
 		el_3.appendChild(txt_3);
 		el_4.appendChild(txt_4);
+		el_smTxt.appendChild(smallText);
 
 		// append the dynamic element to the grid inside the DOM
 		cardHeader.appendChild(el_0);
@@ -66,39 +69,42 @@ fromMakeToDom() serves as the element-maker & DOM injector
 		cardBody.appendChild(el_2);
 		cardBody.appendChild(el_3);
 		cardBody.appendChild(el_4);
-
-		el_0.className = "itemID";
-		el_1.className = "itemName";
-		el_2.className = "itemCategory";
-		el_3.className = "itemPrice";
-		el_4.className = "itemQty";
+		qtySuffix.appendChild(el_smTxt);
+		
+		// add classes to the item's data for styling
+		el_0.className = "itemID d-none";
+		el_1.className = "card-title itemName";
+		el_2.className = "card-text itemCategory";
+		el_3.className = "card-text itemPrice";
+		el_4.className = "card-text itemQty";
+		// .appendChild(smallText);
 
 		let category = o.category.toLowerCase();
 		switch(category) {
 			case "drinks":
-				el_2.className = "itemCategory drinks";
+				el_2.className = "itemCategory card-text drinks";
 				break;
-			case "food":
-				el_2.className = "itemCategory food";
+			case "snacks":
+				el_2.className = "itemCategory card-text snacks";
 				break;
 			case "sweets":
-				el_2.className = "itemCategory sweets";
+				el_2.className = "itemCategory card-text candy";
 				break;
 			case "clothes":
-				el_2.className = "itemCategory clothes";
+				el_2.className = "itemCategory card-text clothes";
 				break;
 			default:
-				el_2.className = "itemCategory";
+				el_2.className = "itemCategory card-text";
 		}
 	}
 
 	function handleSubmit(e){
 		e.preventDefault();
 		const inputs = itemForm.querySelectorAll("input");
-		let itemName = document.getElementById("itemName");
-		let itemCategory = document.getElementById("itemCategory");
-		let itemPrice = document.getElementById("itemPrice");
-		let itemQty = document.getElementById("itemQty");
+		// let itemName = document.getElementById("itemName");
+		// let itemCategory = document.getElementById("itemCategory");
+		// let itemPrice = document.getElementById("itemPrice");
+		// let itemQty = document.getElementById("itemQty");
 		
 		let itemObj = {
 			itemID: count,

@@ -5,8 +5,8 @@ $color-teal: #17A2B8;
 $color-mid: #F41B1B;
 $color-dark: #3D1308;
 $drinks: #1538d8;
-$food:#EA9000;
-$jewelry: #da00da;
+$snacks:#EA9000;
+$candy: #da00da;
 $clothes: #22b904;
 $color-white: #fff;
 $color-black-transparent: rgba(0, 0, 0, 0.5);
@@ -43,6 +43,7 @@ text-decoration: none;
 .btn.btn-info {
 	background-color:$color-primary;
 	border-color: $color-mid;
+	transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1) .3s;
 	&:hover {
 		background-color: $color-mid;
 		border-color: $color-primary;
@@ -55,7 +56,12 @@ text-decoration: none;
 		background-color: $color-black-transparent;
 		border-color: $color-mid;
 	}
+	&:visited {
+		background-color: $color-primary;
+		border-color: $color-mid;
+	}
 }
+
 header p {
 	span {
 		font-weight: bold;
@@ -97,7 +103,6 @@ font-size: 0.85rem;
 
 #item-grid .item-block {
 padding: 5px;
-max-width: 200px;
 width: 100%;
 height: 100%;
 margin-top: 10px;
@@ -113,90 +118,152 @@ margin: 0;
 }
 
 .item-block {
-	min-height:  200px;
-}
+	display: flex;
+	flex-flow: row nowrap;
+	height: 80px;
+	width: 287px;
+	& .card-header, & .card-body {
+		height: 100%;
+		padding: 5px;
+		margin: 0;
+	}
 
-.item-block.card {
-	background-image: url("../img/icons/i_food_lined.svg");
-}
-.item-block .card-header {
-	h4.card-title {
-		font-size: 2.2rem;
-		font-weight: 600;
-		letter-spacing: 0.02px;
+	& .card-header {
+		width: 77.7%;
+	}
+
+	& .card-body {
+		margin-left: 7px;
+		width: calc(23.3% - (7px));
+		padding-right: 5px;
+		padding-left: 2.5px;
+
+		// .itemPrice{
+
+		// }
+
+		.itemQty {
+			background: #FFF;
+			border: 2px inset rgba(0, 0, 0, 0.1);
+			border-radius: 0 0 0 57%;
+			
+			display: block;
+			height: 30px;
+			min-width: 30px;
+			position: absolute;
+			right: -1px;
+			top: -1px;
+			
+			color: black;
+			font-family: "monsterrat", sans-serif;
+			font-size: 0.9rem;
+			font-weight: 400;
+			text-align: center;
+		}
 	}
 }
-.item-block .card-body {
-	background-color: rgba(0,0,0, 0.6);
-	p.item-price {
-		font-family:inherit;
-		font-size: 1.6rem;
-		font-weight: 700;
-		line-height: 1.5;
-		text-align: center;
-	}
-	// outline: 1px $food dotted;
-}
 
-.item-block .card-body p.itemPrice  {
-	font-size: 2rem;
-}
-/* 
-------------------------------
-MEDIUM BREAKPOINT STYLES
------------------------------- 
-*/
+// .item-block {
+// 	min-height:  200px;
+// 	min-width: 200px;
+// }
+// .card {
+// 	background-repeat: none;
+// 	& .bg-snacks {
+// 		background-image: url("./img/icons/i_food_lined.svg");
+// 	}
+// 	& .bg-candy {
+// 		background-image: url("./img/icons/i_candy_lined.svg");
+// 	}
+// 	& .bg-drinks {
+// 		background-image: url("./img/icons/i_drinks_lined.svg");
+// 	}
+// 	& .bg-clothes {
+// 		background-image: url("../img/icons/i_clothes_lined.svg");
+// 	}
+// }
+// .card .bg-snacks {
+// 	background-image: url("./img/icons/i_food_lined.svg");
+// 	background-repeat: none;
+// }
+// .card .bg-candy {
+// 	background-image: url("./img/icons/i_candy_lined.svg");
+// }
+
+// .card .bg-drinks {
+// 	background-image: url("./img/icons/i_drinks_lined.svg");
+// }
+
+// .card .bg-clothes {
+// 	background-image: url("../img/icons/i_clothes_lined.svg");
+// }
+
+// .item-block .card-header {
+// 	h4.card-title {
+// 		font-size: 2.2rem;
+// 		font-weight: 600;
+// 		letter-spacing: 0.02px;
+// 	}
+// }
+// .item-block .card-body {
+// 	background-color: $color-black-transparent;
+
+// 	p.itemPrice, p.itemQty {
+// 		font-family:inherit;
+// 		font-size: 1.6rem;
+// 		font-weight: 700;
+// 		line-height: 1.5;
+// 	}
+// }
+
+// .item-block .card-body p.itemPrice  {
+// 	font-size: 2rem;
+// }
+
 // @media (min-width: 768px) {
-#item-grid {
+// #item-grid {
 // list-style: none;
-}
+// }
 
-#item-grid .item-block {
+// #item-grid .item-block {
 // padding: 5px;
 // width: 200px;
 // height: 100%;
 // margin-top: 10px;
 // text-align: center;
-}
+// }
 
 
-.item-block {
+// .item-block {
 // min-height:  200px;
-}
+// }
 
-.item-block .card-body {
+// .item-block .card-body {
 // padding-bottom: 100px;
-}
+// }
 
-.item-block h4 {
+// .item-block h4 {
 // margin-top: 45px;
 
-}
+// }
 
 
-.card-body .item-qty {
-color: $color-grey;
-}
+// .card-body .itemQty {
+// color: $color-grey;
+// }
 
 // category
-.card-body .item-category {
-color: $color-white;
-padding-left: 10px;
-padding-top: 5px;
-padding-right: 10px;
-}
+// .card-body .itemCategory {
+// color: $color-white;
+// padding-left: 10px;
+// padding-top: 5px;
+// padding-right: 10px;
+// }
 
-.card-body p.drinks { background: $drinks; } // drinks category style
+// .card-body .drinks { background: $drinks; } // drinks category style
 
-.card-body p.food { background: $food; } // food category style
+// .card-body .snacks { background: $snacks; } // food category style
 
-.card-body p.jewelry { background: $jewelry; } // jewelry category style
+// .card-body .candy { background: $candy; } // jewelry category style
 
-.card-body p.clothes { background: $clothes; } // clothes category style
-
-
-/* 
-------------------------------
-END - MEDIUM BREAKPOINT STYLES
------------------------------- 
-*/
+// .card-body .clothes { background: $clothes; } // clothes category style
